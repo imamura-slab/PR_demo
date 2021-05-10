@@ -26,9 +26,9 @@ LEDは常にカウントアップさせ続け, 7セグメントLEDを動的再�
 
 
 # 手順
-1. ふつうにコンパイルする 
+## 1. ふつうにコンパイルする 
 
-2. Design Partition を作る
+## 2. Design Partition を作る
 - Project Navigator の Hierarchy で
   - PRしたいインスタンスを右クリック -> Design Partition -> Set as Design Partition にチェック
   - PRしたいインスタンスを右クリック -> Design Partition -> Reconfigurable を選択
@@ -40,7 +40,7 @@ LEDは常にカウントアップさせ続け, 7セグメントLEDを動的再�
   set_instance_assignment -name PARTIAL_RECONFIGURATION_PARTITION ON -to <インスタンス名>
   ```
 
-3. PR Partition に対して Placement領域とRouting領域を割り当てる
+## 3. PR Partition に対して Placement領域とRouting領域を割り当てる
 - Project Navigator の Hierarchy で
   - インスタンスを右クリック -> Logic Lock Region -> Create New Logic Lock Region を選択
   - インスタンスを右クリック -> Locate Node -> Locate in Chip Planner を選択 -> Chip Plannerのウィンドウが立ち上がる
@@ -57,7 +57,7 @@ LEDは常にカウントアップさせ続け, 7セグメントLEDを動的再�
   set_instance_assignment -name CORE_ONLY_PLACE_REGION ON -to <インスタンス名>
   set_instance_assignment -name ROUTE_REGION "<左下x> <左下y> <右上x> <右上y>" -to <インスタンス名>
   ```
-4. PR-IP Core を追加する
+## 4. PR-IP Core を追加する
 - IP Catalog で
   - partial reconfiguration を検索 -> Partial Reconfiguration Controller Intel Arria 10/Cyclone 10 FPGA IP を選択 -> ウィンドウが立ち上がる
   - file name を決める(インスタンス化するときに使う)
@@ -82,7 +82,7 @@ LEDは常にカウントアップさせ続け, 7セグメントLEDを動的再�
     );
   ```
 
-1. ペルソナを定義する
+## 5. ペルソナを定義する
 Base Revision Type を設定する
 - 上部のメニューバーで
   - Assignments -> Settings -> General -> Revision Type に「Partial Reconfiguration - Base」を選択
@@ -103,7 +103,7 @@ Implementation Revisions をつくる
   ```
   - すべての(Base以外の)revisionに対してこれらを行う
 
-1. Base Revision の compile と Static Region の Export
+## 6. Base Revision の compile と Static Region の Export
 - 上部のメニューバーで
   - Project -> Revisions -> Base Revision を Current Revision に設定
   - (プロジェクト名).qsfに以下の文を追加
@@ -122,7 +122,7 @@ Implementation Revisions をつくる
     | Inaclude entity-bound SDC files | Enable               |
     | Snapshot                | Final                        |
 
-1. PR Implementation Revisions の準備
+## 7. PR Implementation Revisions の準備
 - 上部のメニューバーで
   - Project -> Revisions -> PRしたいものを選択し, Set Current をクリック
   - Project -> Add/Remove Files in Project をクリックして正しいソースファイルがあるか確認. なかったら追加する.
@@ -141,7 +141,7 @@ Implementation Revisions をつくる
 - ふつうにコンパイル
 - すべての(Base以外の)revisionに対してこれらを行う
 
-1. ボードに載せる
+## 8. ボードに載せる
 - Programmer を起動
 - .sofファイルを選択して Start
 - 載せたファイル(チップのイラスト?)を右クリック -> Add PR Programming File をクリック
