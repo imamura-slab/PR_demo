@@ -1,5 +1,3 @@
-# 未完成
-
 
 # PR_demo
 Intel FPGA 動的再構成チュートリアル
@@ -19,14 +17,14 @@ LEDは常にカウントアップさせ続け, 7セグメントLEDは動的再�
 
 # ソースコード
 
-| モジュール名   | 内容                                         |       |
-|:---------------|:---------------------------------------------|:-----:|
-| top            | トップモジュール                             |       |
-| cnt_sec        | 1秒をカウントする                            |       |
-| seg7dec        | 7セグデコーダ                                |       |
-| cntup_led      | ledを光らせる. 4bit count up                 |       |
-| `cntup_seg7`   | `7セグメントLEDをcount upさせる(10進 2桁)`   |default|
-| `cntdown_seg7` | `7セグメントLEDをcount downさせる(10進 2桁)` |PR     |
+| モジュール名   | 内容                                         |         |
+|:---------------|:---------------------------------------------|:-------:|
+| top            | トップモジュール                             |         |
+| cnt_sec        | 1秒をカウントする                            |         |
+| seg7dec        | 7セグデコーダ                                |         |
+| cntup_led      | ledを光らせる. 4bit count up                 |         |
+| cntup_seg7     | 7セグメントLEDをcount upさせる(10進 2桁)     |`default`|
+| cntdown_seg7   | 7セグメントLEDをcount downさせる(10進 2桁)   |`PR`     |
 
 
 # 手順
@@ -97,7 +95,7 @@ Base Revision Type を設定する
 Implementation Revisions をつくる
 - 上部のメニューバーで
   - Project -> Revisions
-  - <<new revision>> をダブルクリック -> revision名を入力
+  - << new revision >> をダブルクリック -> revision名を入力
   - Revision Type に「Partial Reconfiguration - Persona Implementation」を選択
   - This project uses a Partition Database (.qdb)file for the root partition にチェック (名前はつけなくて良い)
   - Set as current revision のチェックを外す
@@ -109,7 +107,7 @@ Implementation Revisions をつくる
 
 ## 6. Base Revision の compile と Static Region の Export
 - 上部のメニューバーで
-  - Project -> Revisions -> Base Revision を Current Revision に設定
+  - Project -> Revisions -> Base Revision を Current Revision に設定(選択して Set Current)
   - (プロジェクト名).qsfに以下の文を追加
   ```
   set_global_assignment -name GENERATE_PR_RBF_FILE ON
@@ -158,11 +156,12 @@ Implementation Revisions をつくる
 コマンドで行うなら
 - configuration
 ```
-quartus-pgm -c DE5(デバイス名) -m jtag -o p\; <ファイル名>.sof
+quartus_pgm -c DE5(デバイス名) -m jtag -o p\;<ファイル名>.sof
+(セミコロンの後ろにスペースを入れてはいけない)
 ```
 - Partial Reconfiguration
 ```
-quartus-pgm -c DE5(デバイス名) -m jtag -pr <ファイル名>.rbf
+quartus_pgm -c DE5(デバイス名) -m jtag -pr <ファイル名>.rbf
 ```
 
 
