@@ -107,7 +107,7 @@ Implementation Revisions をつくる
 
 ## 6. Base Revision の compile と Static Region の Export
 - 上部のメニューバーで
-  - Project -> Revisions -> Base Revision を Current Revision に設定(選択して Set Current)
+  - Project -> Revisions -> Base Revision を Current Revision に設定 (選択して Set Current をクリック)
   - (プロジェクト名).qsfに以下の文を追加
   ```
   set_global_assignment -name GENERATE_PR_RBF_FILE ON
