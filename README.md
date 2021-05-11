@@ -43,28 +43,24 @@ LEDは常にカウントアップさせ続け, 7セグメントLEDは動的再�
   ```
   set_instance_assignment -name PARTITION <付けた名前> -to <インスタンス名>
   set_instance_assignment -name PARTIAL_RECONFIGURATION_PARTITION ON -to <インスタンス名>
-  ```
-<br>
+  ```<br>
+  
 ![2_1](./image/2_1.png)<br><br><br>
 
 ***
 ## 3. PR Partition に対して Placement領域とRouting領域を割り当てる
 - Project Navigator の Hierarchy で
-  - インスタンスを右クリック -> Logic Lock Region -> Create New Logic Lock Region を選択
-  <br>
+  - インスタンスを右クリック -> Logic Lock Region -> Create New Logic Lock Region を選択<br>
   ![3_1](./image/3_1.png)<br><br><br>
-  - インスタンスを右クリック -> Locate Node -> Locate in Chip Planner を選択 -> Chip Plannerのウィンドウが立ち上がる
-  <br>
+  - インスタンスを右クリック -> Locate Node -> Locate in Chip Planner を選択 -> Chip Plannerのウィンドウが立ち上がる<br>
   ![3_2](./image/3_2.png)<br><br><br>
 - Chip Planner で
   - 左下の四角い枠を動かしてPR領域の位置と大きさを決める
-  - Chip Plannerを立ち上げなくても Logic Lock Regions Window で (height, width, 矩形左下の座標) を指定することで同じことができる
-  <br>
+  - Chip Plannerを立ち上げなくても Logic Lock Regions Window で (height, width, 矩形左下の座標) を指定することで同じことができる<br>
   ![3_3](./image/3_3.png)<br><br><br>
 - Logic Lock Regions Window で
   - Reserved と Core-Only を ON にする
-  - Routing Region をダブルクリックして Fixed with expansion を選択
-  <br>
+  - Routing Region をダブルクリックして Fixed with expansion を選択<br>
   ![3_4](./image/3_4.png)<br><br><br>
   - <プロジェクト名>.qsf に以下の文が含まれていることを確認
   ```
@@ -81,8 +77,7 @@ LEDは常にカウントアップさせ続け, 7セグメントLEDは動的再�
   - file name を決める(インスタンス化するときに使う)
   - Enable JTAG debug mode と Enable freeze interface オプションにチェック
   - Enable Avalon-MM slave interface オプションのチェックを外す
-  - Generate HDL をクリック
-  <br>
+  - Generate HDL をクリック<br>
   ![4_1](./image/4_1.png)<br><br><br>
 - PRしたいモジュールをインスタンス化しているファイルで
   - PR-IP Core をインスタンス化
@@ -106,8 +101,7 @@ LEDは常にカウントアップさせ続け, 7セグメントLEDは動的再�
 ## 5. ペルソナを定義する
 Base Revision Type を設定する
 - 上部のメニューバーで
-  - Assignments -> Settings -> General -> Revision Type に「Partial Reconfiguration - Base」を選択
-  <br>
+  - Assignments -> Settings -> General -> Revision Type に「Partial Reconfiguration - Base」を選択<br>
   ![5_1](./image/5_1.png)<br><br><br>
   ![5_2](./image/5_2.png)<br><br><br>
   - <プロジェクト名>.qsf に以下の文が含まれていることを確認
@@ -116,17 +110,14 @@ Base Revision Type を設定する
   ```
 Implementation Revisions をつくる
 - 上部のメニューバーで
-  - Project -> Revisions
-  <br>
+  - Project -> Revisions<br>
   ![5_3](./image/5_3.png)<br><br><br>
-  - << new revision >> をダブルクリック
-  <br>
+  - << new revision >> をダブルクリック<br>
   ![5_4](./image/5_4.png)<br><br><br>
   - revision名を入力
   - Revision Type に「Partial Reconfiguration - Persona Implementation」を選択
   - This project uses a Partition Database (.qdb)file for the root partition にチェック (名前はつけなくて良い)
-  - Set as current revision のチェックを外す
-  <br>
+  - Set as current revision のチェックを外す<br>
   ![5_5](./image/5_5.png)<br><br><br>
   - (revision名).qsfに以下の文が含まれていることを確認
   ```
@@ -152,9 +143,8 @@ Implementation Revisions をつくる
     | Partition name          | root_partition               |
     | Partition database file | <project>/root_partition.qdb |
     | Inaclude entity-bound SDC files | Enable               |
-    | Snapshot                | Final                        |
+    | Snapshot                | Final                        |<br>
 
-<br>
 ![6_1](./image/6_1.png)<br><br><br>
 
 ***
@@ -164,8 +154,7 @@ Implementation Revisions をつくる
   - Project -> Add/Remove Files in Project をクリックして正しいソースファイルがあるか確認. なかったら追加する.
 - Design Partitions Window で
   - root_partition行, Partition Database File列 に.qdbファイルをセット
-  - prしたいpartition行, Entity Re-binding列 にPRしたいモジュール名を入力
-  <br>
+  - prしたいpartition行, Entity Re-binding列 にPRしたいモジュール名を入力<br>
   ![7_1](./image/7_1.png)<br><br><br>
   - <revision名>.qsfに以下の文が含まれていることを確認
   ```
