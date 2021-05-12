@@ -180,9 +180,10 @@ Implementation Revisions をつくる
 - PRしたいモジュールの.rbfファイルを選択<br>
   ![8_2](./image/8_2.png)<br><br><br>
 - 最初に載せた .sofファイルの Program/Configure のチェックを外す
-- 今載せた .rbfファイルの Program/Configure にチェック<br>
-  ![8_3](./image/8_3.png)<br><br><br>
-- Start
+- 今載せた .rbfファイルの Program/Configure にチェック
+- Start<br>
+![8_3](./image/8_3.png)<br><br><br>
+
 
 
 コマンドで行うなら
