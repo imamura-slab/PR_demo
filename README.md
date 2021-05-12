@@ -175,10 +175,13 @@ Implementation Revisions をつくる
 ## 8. ボードに載せる
 - Programmer を起動
 - .sofファイルを選択して Start
-- 載せたファイル(チップのイラスト?)を左クリックで選択し, 右クリック -> Edit -> Add PR Programming File をクリック
-- PRしたいモジュールの.rbfファイルを選択
+- 載せたファイル(チップのイラスト?)を左クリックで選択し, 右クリック -> Edit -> Add PR Programming File をクリック<br>
+  ![8_1](./image/8_1.png)<br><br><br>
+- PRしたいモジュールの.rbfファイルを選択<br>
+  ![8_2](./image/8_2.png)<br><br><br>
 - 最初に載せた .sofファイルの Program/Configure のチェックを外す
-- 今載せた .rbfファイルの Program/Configure にチェック
+- 今載せた .rbfファイルの Program/Configure にチェック<br>
+  ![8_3](./image/8_3.png)<br><br><br>
 - Start
 
 
