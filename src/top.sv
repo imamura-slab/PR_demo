@@ -35,20 +35,20 @@ module top
    
 
 
-   // pr ip
-   wire 		     freeze;
-   wire [2:0] 		     pr_ip_status;
-   pr_ip pr_ip_inst
-     (
-      .clk(clk),
-      .nreset(1'b1),
-      .freeze(freeze),
-      .pr_start(1'b0),
-      .status(pr_ip_status),
-      .data(16'b0),
-      .data_valid(1'b0),
-      .data_ready()
-      );
+   //// pr ip
+   // wire 		     freeze;
+   // wire [2:0] 		     pr_ip_status;
+   // pr_ip pr_ip_inst
+   //   (
+   //    .clk(clk),
+   //    .nreset(1'b1),
+   //    .freeze(freeze),
+   //    .pr_start(1'b0),
+   //    .status(pr_ip_status),
+   //    .data(16'b0),
+   //    .data_valid(1'b0),
+   //    .data_ready()
+   //    );
    
 
 
