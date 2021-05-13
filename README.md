@@ -31,6 +31,21 @@ LEDは常にカウントアップさせ続け, 7セグメントLEDは動的再�
 
 `cntup_seg7` と `cntdown_seg7` を動的再構成により入れ替える
 
+
+# 用語
+- Design Partition
+  - 指定した機能モジュールを独立する回路として作成する区画
+- Logic Lock
+  - 部分再構成するモジュールの配置を, 指定した位置に固定すること. この領域をLogic Lock領域と呼ぶ. Logic Lock領域には Placement領域 と Routing領域 がある. 
+- Placement領域
+  - 部分再構成をする回路を配置する領域
+- Routing領域
+  - Logic Lock領域の外部とPlacement領域を接続する経路を配置する領域
+- ペルソナ
+  - 部分再構成する機能モジュール
+
+
+
 # 手順
 ***
 ## 1. ふつうにコンパイルする 
